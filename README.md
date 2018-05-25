@@ -20,7 +20,7 @@ npx quick-init <project-name> [option]
 > ref: https://medium.com/@maybekatz/introducing-npx-an-npm-package-runner-55f7d4bd282b
 
 <p align='center'>
-<img src='./screenshot.svg' alt='npm start'>
+<img src='./screenshot.svg' width='600' alt='npm start'>
 </p>
 
 ## License
