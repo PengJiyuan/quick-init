@@ -2,5 +2,11 @@
   "private": true,
   "dependencies": {
     "cross-spawn": "^6.0.5"
+  },
+  "devDependencies": {
+    "svg-term": "^1.1.7"
+  },
+  "scripts": {
+    "screenshot": "cd scripts && node screenshot.js"
   }
 }

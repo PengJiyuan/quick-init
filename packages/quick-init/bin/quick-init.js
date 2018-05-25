@@ -64,8 +64,8 @@ function selectAppType() {
     message: `Which type do you want to create?`,
     choices: [
       'react-demo',
-      // 'MPA',
-      // 'SPA'
+      'MPA',
+      'SPA'
     ]
   }).then(a => {
     createApp(a.type);
