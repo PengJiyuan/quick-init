@@ -23,6 +23,13 @@ npx quick-init <project-name> [option]
 <img src='./screenshot.svg' width='600' alt='npm start'>
 </p>
 
+## Features
+
+* Multiple templates are available for use.
+* No more encapsulation, pure experience.
+* Keep up with the latest version of Webpack(4+).
+* No more create-react-app.
+
 ## License
 
 [MIT](./LICENSE)
