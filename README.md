@@ -26,3 +26,7 @@ npx quick-init <project-name> [option]
 ## License
 
 [MIT](./LICENSE)
+
+## Bouns
+
+Inspired by Create-react-app.
