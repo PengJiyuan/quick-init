@@ -15,7 +15,9 @@ fs.readFile(path.resolve(__dirname, '..', 'screenshot.json'), 'utf8', (err, data
 
   const afterCut = cut(verbose, start, end);
 
-  const svg = render(afterCut.join('\n'));
+  const svg = render(afterCut.join('\n'), {
+    window: true
+  });
   fs.writeFile(path.resolve(__dirname, '..', 'screenshot.svg'), svg, (err) => {
     if(err) throw err;
     console.log('Generate svg scuccess!');

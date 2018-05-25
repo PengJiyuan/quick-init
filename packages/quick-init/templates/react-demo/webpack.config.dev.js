@@ -4,10 +4,12 @@
 const path = require('path');
 const fs = require('fs');
 const webpack = require('webpack');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const autoprefixer = require('autoprefixer');
 
 module.exports = {
+
+  mode: 'development',
 
   context: __dirname,
 
@@ -30,21 +32,20 @@ module.exports = {
         }
       }
     }, {
-      test: /\.less$/,
-      use: ExtractTextPlugin.extract({
-        use: [{
-          loader: 'css-loader'
-        }, {
+      test: /\.less|css$/,
+      use: [
+        MiniCssExtractPlugin.loader,
+        'css-loader',
+        'less-loader',
+        {
           loader: 'postcss-loader',
           options: {
             plugins: function() {
               return [autoprefixer];
             }
           }
-        }, {
-          loader: `less-loader?{"sourceMap":true}`
-        }]
-      })
+        }
+      ]
     }, {
       test: /\.(woff|svg|eot|ttf|otf)\??.*$/,
       use: [{
@@ -56,27 +57,24 @@ module.exports = {
     }]
   },
 
-  // only show valid/invalid and errors
-  // deal with verbose output
-  stats: {
-    assets: true,
-    colors: true,
-    warnings: true,
-    errors: true,
-    errorDetails: true,
-    entrypoints: true,
-    version: true,
-    hash: false,
-    timings: true,
-    chunks: false,
-    chunkModules: false,
-    children: false
-  },
+  // optimization: {
+  //   splitChunks: {
+  //     cacheGroups: {
+  //       styles: {
+  //         name: 'styles',
+  //         test: /\.css$/,
+  //         chunks: 'all',
+  //         enforce: true
+  //       }
+  //     }
+  //   },
+  //   namedModules: false
+  // },
 
   plugins: [
-    new ExtractTextPlugin({
-      filename: '[name].min.css',
-      allChunks: true
+    new MiniCssExtractPlugin({
+      filename: "[name].min.css",
+      chunkFilename: "[id].css"
     })
   ],
 
@@ -96,6 +94,10 @@ module.exports = {
     contentBase: path.join(__dirname, 'public'),
     compress: true,
     port: 8888,
-    inline: true
-  }
+    inline: true,
+    open: true,
+    stats: 'errors-only'
+  },
+
+  devtool: 'cheap-source-map'
 };
