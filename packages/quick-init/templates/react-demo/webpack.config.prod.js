@@ -1,24 +1,22 @@
-/**
- * @PengJiyuan
- */
 const path = require('path');
 const fs = require('fs');
 const webpack = require('webpack');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const autoprefixer = require('autoprefixer');
-const os = require('os');
-const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = {
 
   context: __dirname,
 
+  mode: 'development',
+
   entry: './src/index.js',
 
   output: {
-    path: './dist',
-    filename: '[name].min.js',
-    publicPath: '/dist'
+    path: path.resolve(__dirname, 'dist/'),
+    filename: '[hash:6].[name].min.js'
   },
 
   module: {
@@ -26,80 +24,53 @@ module.exports = {
       test: /\.jsx?$/,
       exclude: /node_modules/,
       use: {
-        loader: 'babel-loader',
-        options: {
-          cacheDirectory: process.env.NODE_ENV !== 'production'
-        }
+        loader: 'babel-loader'
       }
     }, {
-      test: /\.less$/,
-      use: ExtractTextPlugin.extract({
-        use: [{
+      test: /\.less|css$/,
+      use: [
+        MiniCssExtractPlugin.loader,
+        'css-loader',
+        'less-loader',
+        {
           loader: 'postcss-loader',
           options: {
             plugins: function() {
               return [autoprefixer];
             }
           }
-        }, {
-          loader: 'less-loader'
-        }]
-      })
+        }
+      ]
     }, {
       test: /\.(woff|svg|eot|ttf|otf)\??.*$/,
-      use: [
-        'file-loader?limit=1000&name=/fonts/[hash:8].icon.[ext]'
-      ]
+      use: [{
+        loader: 'file-loader',
+        options: {
+          name: '[name].[hash:8].[ext]'
+        }
+      }]
     }]
   },
 
-  // only show valid/invalid and errors
-  // deal with verbose output
-  stats: {
-    assets: true,
-    colors: true,
-    warnings: true,
-    errors: true,
-    errorDetails: true,
-    entrypoints: true,
-    version: true,
-    hash: false,
-    timings: true,
-    chunks: false,
-    chunkModules: false,
-    children: false
-  },
-
   plugins: [
-    new ExtractTextPlugin({
-      filename: '[hash:6].[name].min.css',
-      allChunks: true
+    new MiniCssExtractPlugin({
+      filename: "[hash:6].[name].min.css",
+      chunkFilename: "[id].css"
     }),
-    new UglifyJSPlugin({
-      parallel: os.cpus().length
-    }),
-    new webpack.DefinePlugin({
-      'process.env': {
-        NODE_ENV: JSON.stringify('production')
-      }
+    new HtmlWebpackPlugin({
+      template: path.resolve(__dirname, 'public/index.html')
     })
   ],
 
   resolve: {
     extensions: ['.jsx', '.js', 'json'],
     modules: [
-      path.resolve(__dirname, '../'),
+      path.resolve(__dirname),
       'node_modules'
     ],
     alias: {
       'react': 'node_modules/react',
       'react-dom': 'node_modules/react-dom'
     }
-  },
-
-  devServer: {
-    contentBase: path.join(__dirname),
-    compress: true,
-    port: 9000
   }
 };

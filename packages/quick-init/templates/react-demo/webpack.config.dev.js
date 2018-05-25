@@ -1,24 +1,23 @@
-/**
- * @PengJiyuan
- */
 const path = require('path');
 const fs = require('fs');
 const webpack = require('webpack');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const WriteFilePlugin = require('write-file-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const autoprefixer = require('autoprefixer');
 
 module.exports = {
 
-  mode: 'development',
-
   context: __dirname,
+
+  mode: 'development',
 
   entry: './src/index.js',
 
   output: {
-    path: path.resolve(__dirname, 'public'),
+    path: path.resolve(__dirname, 'dist/'),
     filename: '[name].min.js',
-    publicPath: 'public/'
+    publicPath: 'dist/'
   },
 
   module: {
@@ -28,7 +27,7 @@ module.exports = {
       use: {
         loader: 'babel-loader',
         options: {
-          cacheDirectory: process.env.NODE_ENV !== 'production'
+          cacheDirectory: true
         }
       }
     }, {
@@ -57,25 +56,15 @@ module.exports = {
     }]
   },
 
-  // optimization: {
-  //   splitChunks: {
-  //     cacheGroups: {
-  //       styles: {
-  //         name: 'styles',
-  //         test: /\.css$/,
-  //         chunks: 'all',
-  //         enforce: true
-  //       }
-  //     }
-  //   },
-  //   namedModules: false
-  // },
-
   plugins: [
     new MiniCssExtractPlugin({
       filename: "[name].min.css",
       chunkFilename: "[id].css"
-    })
+    }),
+    new HtmlWebpackPlugin({
+      template: path.resolve(__dirname, 'public/index.html')
+    }),
+    new WriteFilePlugin()
   ],
 
   resolve: {
@@ -91,11 +80,10 @@ module.exports = {
   },
 
   devServer: {
-    contentBase: path.join(__dirname, 'public'),
+    contentBase: path.join(__dirname, 'dist'),
     compress: true,
     port: 8888,
     inline: true,
-    open: true,
     stats: 'errors-only'
   },
 
