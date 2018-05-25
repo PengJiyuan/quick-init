@@ -1,0 +1,132 @@
+@import '../../../components/header.less';
+@import '../../../components/footer.less';
+@bread_color: #0B181D;
+.not-found {
+  @media (min-width: @pad_width) {
+    .volcano-common-content {
+      width: 1240px;
+      margin: auto;
+      position: relative;
+      box-sizing: border-box;
+      padding: 100px 20px 0 100px;
+    }
+  }
+  @media (min-width: @mobile_width) and (max-width: @pad_width) {
+    .volcano-common-content {
+      padding: 100px 15px 0 15px;
+      width: 100%;
+      box-sizing: border-box;
+      height: 100%;
+      .breadcrumb{
+        bottom: -47px !important;
+      }
+    }
+  }
+  @media (max-width: @mobile_width) {
+    .volcano-common-content {
+      padding: 0 0.75rem;
+      width: 100%;
+      height: 100%;
+      padding-top: 50px;
+      box-sizing: border-box;
+    }
+  }
+  .content-banner {
+    width: 100%;
+    height: 370px;
+    background-color: #010413;
+    margin-bottom: 100px;
+    position: relative;
+    .wraper{
+      img{
+        height: 370px;
+        float: right;
+        margin-top: -100px;
+      }
+      .word {
+        text-align: left;
+        position: absolute;
+        width: 650px;
+        height: auto;
+        top: 178px;
+        left: 20px;
+        .word-title {
+          display: none;
+          color: @color_white;
+          font-size: 24px;
+          line-height: 58px;
+        }
+        .word-brief {
+          color: @color_white;
+          font-size: 40px;
+          line-height: 56px;
+          letter-spacing: 2.6px;
+          margin-bottom: 10px;
+        }
+        .word-describe {
+          font-size: 20px;
+          line-height: 28px;
+          color: rgba(255,255,255,0.8);
+          letter-spacing: 2px;
+          font-weight: 200;
+        }
+      }
+    }
+  }
+  .conent{
+    display: block;
+    width: 80%;
+    text-align: center;
+    margin: 0 auto;
+    font-size: 20px;
+    line-height: 28px;
+    color: @black;
+    margin-bottom: 250px;
+    a{
+      color: #2581b7;
+      text-decoration: underline;
+    }
+  }
+}
+@media screen and (max-width: @mobile_width) {
+  .not-found {
+    article {
+      font-size: 16px;
+      .content-banner{
+        margin-bottom: 20px;
+        height: 156px;
+        .wraper {
+          width: 100%;
+          margin: auto;
+          padding: 0;
+          img{
+            height: 156px;
+            margin-top: -50px;
+          }
+          .word {
+            padding-left: 4%;
+            top: 60px;
+            width:80%;
+            .word-title {
+              display: block;
+              font-size: 20px;
+              line-height: 28px;
+              color: #FFFFFF;
+              letter-spacing: 1.6px;
+            }
+            .word-brief {
+              font-size: 14px;
+              color: rgba(255,255,255,0.8);
+              letter-spacing: 1px;
+              line-height: 22px;
+              font-weight: 200;
+            }
+            .word-describe {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+  }
+}

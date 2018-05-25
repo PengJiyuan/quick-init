@@ -1,0 +1,116 @@
+{
+  "tabs": [{
+    "name": ["block_mgmt"],
+    "key": "block_mgmt",
+    "default": true
+  }],
+  "btns": [{
+    "value": ["create_block_volume"],
+    "key": "create",
+    "icon": "create"
+  }, {
+    "value": ["more"],
+    "key": "more",
+    "type": "primary",
+    "iconClass": "more",
+    "dropdown": [{
+      "value": ["create", "snapshot"],
+      "key": "create_snapshot",
+      "disabled": true
+    }, {
+      "value": ["clear", "snapshot"],
+      "key": "clear_snapshot",
+      "disabled": true
+    }, {
+      "value": ["flatten"],
+      "key": "flatten",
+      "disabled": true
+    }, {
+      "type": "divider"
+    }, {
+      "value": ["extend_capacity"],
+      "key": "extend_capacity",
+      "disabled": true
+    }, {
+      "value": ["reduce_capacity"],
+      "key": "reduce_capacity",
+      "disabled": true
+    }, {
+      "value": ["rollback"],
+      "key": "rollback",
+      "disabled": true
+    }, {
+      "type": "divider"
+    }, {
+      "value": ["delete"],
+      "key": "delete",
+      "disabled": true
+    }]
+  }, {
+    "value": ["refresh"],
+    "key": "refresh",
+    "type": "primary",
+    "icon": "refresh"
+  }],
+  "operations": [{
+    "key": "type",
+    "type": "select",
+    "width": 120,
+    "transpile": true,
+    "data": [{
+      "name": "iscsi_pool",
+      "value": "iscsi"
+    }, {
+      "name": "cloud_pool",
+      "value": "cloud"
+    }, {
+      "name": "common_block_pool",
+      "value": "block"
+    }]
+  }, {
+    "key": "pool",
+    "type": "select",
+    "width": 120,
+    "data": []
+  }],
+  "search": {
+    "placeholder": ["volume_name"]
+  },
+  "table": {
+    "checkbox": true,
+    "rowKey": "id",
+    "limit": 10,
+    "loading": true,
+    "columns": [{
+      "title": ["name"],
+      "dataIndex": "name",
+      "type": "captain"
+    }, {
+      "title": ["allocate", "capacity"],
+      "dataIndex": "allocate_capacity"
+    }, {
+      "title": ["volume_type"],
+      "dataIndex": "volume_type"
+    }, {
+      "title": ["parent_snapshot"],
+      "dataIndex": "parent_snapshot"
+    }, {
+      "title": ["snapshot_numbers"],
+      "dataIndex": "snapshot_numbers"
+    }, {
+      "title": ["create", "time"],
+      "dataIndex": "created_at"
+    }],
+    "data": [],
+    "detail": {
+      "tabs": [{
+        "name": ["description"],
+        "key": "description",
+        "default": true
+      }, {
+        "name": ["snapshot"],
+        "key": "snapshot"
+      }]
+    }
+  }
+}

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113333628-1"></script>
+  <script>
+  window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+        gtag('config', 'UA-113333628-1');
+  </script>
+  <title><%= title %></title>
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=no, maximum-scale=1, width=device-width">
+  <meta name="keywords" content="云计算,同方云,云平台,私有云,公有云,Openstack,云存储,云硬盘,云主机" />
+  <meta name="description" content="同方云产品与解决方案覆盖IT建设全栈，从基础环境建设（风、火、水、电）、硬件设备、再到云平台操作系统、存储、大数据、云安全产品与方案，甚至到各个行业的行业云和应用，为其提供端到端的公有云、私有云、混合云IT建设一站式服务。" />
+  <meta name="robots" content="all" />
+  <link rel="stylesheet" type="text/css" href="<%=commonCssFile %>" />
+  <link rel="stylesheet" type="text/css" href="<%=cssFile %>" />
+  <link href="/static/assets/favicon.ico" mce_href="/static/assets/favicon.ico" rel="icon" type="image/x-icon" /> 
+</head>
+<body >
+<div id="volcano-global-header" class="volcano-global-header">
+  <div class="header-wrapper">
+    <div class="header-left">
+      <a href="/"></a>
+      <div id="x-open" class="x-wrapper">
+        <div class="x-1"></div>
+        <div class="x-2"></div>
+      </div>
+    </div>
+    <ul id="header-center" class="header-center">
+<!--       <li>
+        <a href="javascript:void(0)" class="public-cloud bottom">
+          <%= public_cloud %>
+          <i class="icon-arrow-down"></i>
+        </a>
+        <div class="dropdown-wrapper">
+          <ul class="dropdown">
+            <li><a href="/public/compute"><%= compute %></a></li>
+            <li><a href="/public/network"><%= network %></a></li>
+            <li><a href="/public/storage"><%= storage %></a></li>
+            <li><a href="/public/alarm"><%= alarm %></a></li>
+            <li><a href="/public/price"><%= price %></a></li>
+          </ul>
+        </div>
+      </li> -->
+
+      <li class="multi-dropdown">
+        <a href="javascript:void(0)" class="uos-product bottom">
+          <%= product %>
+          <i class="icon-arrow-down"></i>
+        </a>
+        <div class="dropdown-wrapper wide-wrapper">
+          <ul class="dropdown wide">
+            <li><a href="/product/environment"><%= environment %></a></li>
+            <li class="multi">
+              <a class="four" href="javascript:void(0)"><%= hardware %>
+                <i class="icon-arrow-right"></i>
+                <i class="icon-arrow-down"></i>
+              </a>
+              <ul class="child-dropdown">
+                <li class="two"><a href="/product/hardware/rack-server"><%= rack_server %></a></li>
+                <li class="two"><a href="/product/hardware/tower-server"><%= tower_server %></a></li>
+                <li class="two"><a href="/product/hardware/blade-server"><%= blade_server %></a></li>
+                <li class="two"><a href="/product/hardware/enterprise-storage"><%= enterprise_storage %></a></li>
+              </ul>
+            </li>
+            <li class="multi">
+              <a class="five" href="javascript:void(0)"><%= cloud_platform %>
+                <i class="icon-arrow-right"></i>
+                <i class="icon-arrow-down"></i>
+              </a>
+              <ul class="child-dropdown">
+                <li class="two"><a href="/product/cloud-platform/product"><%= full_platform %></a></li>
+                <li class="two"><a href="/product/cloud-platform/enterprise"><%= tongfang %>Enterprise</a></li>
+                <li class="two"><a href="/product/cloud-platform/director"><%= tongfang %>Director</a></li>
+                <li class="two"><a href="/product/cloud-platform/operator"><%= tongfang %>Operator</a></li>
+                <li class="two"><a href="/product/cloud-platform/manager"><%= tongfang %>Manager</a>
+              </ul>
+            </li>
+            <li><a href="/product/storage"><%= storage %></a></li>
+            <li><a href="/product/big-data"><%= big_data %></a></li>
+            <li><a href="/product/cloud-security"><%= cloud_security %></a></li>
+            <li><a href="/product/om-management"><%= om_management %></a></li>
+          </ul>
+        </div>
+      </li>
+      <li>
+        <a href="javascript:void(0)" class="bottom">
+          <%= services_support %>
+          <i class="icon-arrow-down"></i>
+        </a>
+        <div class="dropdown-wrapper">
+          <ul class="dropdown">
+            <li><a href="/support/product-service"><%= product_service %></a></li>
+            <li><a href="/support/technical-support"><%= technical_support %></a></li>
+            <li><a href="/support/online-flow"><%= online_flow %></a></li>
+            <li><a href="/support/apply-now"><%= apply_now %></a></li>
+            <li><a href="/support/tf-news/list"><%= news %></a></li>
+            <li><a href="/support/quality-assurance"><%= quality_assurance %></a></li>
+          </ul>
+        </div>
+      </li>
+      <li>
+        <a href="javascript:void(0)" class="bottom">
+          <%= technical_train %>
+          <i class="icon-arrow-down"></i>
+        </a>
+        <div class="dropdown-wrapper">
+          <ul class="dropdown">
+            <li><a href="/train/technical-train"><%= technical_train %></a></li>
+            <li><a href="/train/train-list"><%= train_list %></a></li>
+            <li><a href="/train/train-apply"><%= train_apply %></a></li>
+          </ul>
+        </div>
+      </li>
+      <li>
+        <a href="javascript:void(0)" class="bottom">
+          <%= about_us_header %>
+          <i class="icon-arrow-down"></i>
+        </a>
+        <div class="dropdown-wrapper">
+          <ul class="dropdown">
+            <li><a href="/about/company"><%= company %></a></li>
+            <li><a href="/about/contact-us"><%= contact_us %></a></li>
+            <li><a href="/about/identify"><%= identify %></a></li>
+            <li><a href="/about/clients"><%= clients %></a></li>
+            <li><a href="/about/jobs"><%= jobs %></a></li>
+          </ul>
+        </div>
+      </li>
+      <li>
+        <a href="javascript:void(0)" class="bottom">
+          <%= cooperation_header %>
+          <i class="icon-arrow-down"></i>
+        </a>
+        <div class="dropdown-wrapper">
+          <ul class="dropdown">
+            <li><a href="/cooperation/cooperation-apply"><%= cooperation_apply %></a></li>
+          </ul>
+        </div>
+      </li>
+      <li class="mobile-login">
+        <div class="login-wrapper">
+          <a class="login-link" href="javascript:void(0)">
+            <%= console %>
+            <i class="icon-arrow-right"></i>
+          </a>
+          <a class="register-link" href="javascript:void(0)">
+            <%= register %>
+            <i class="icon-arrow-right"></i>
+          </a>
+        </div>
+      </li>
+<!--       <li class="mobile-lang">
+        <a href="?lang=zh">中文</a>
+        &nbsp;&nbsp;|&nbsp;&nbsp;
+        <a href="?lang=en">English</a>
+      </li> -->
+    </ul>
+    <div class="header-right">
+      <% if (false) { %>
+        <div class="logined-wrapper">
+          <a href="javascript:void(0)" class="vemail"></a>
+          <a class="logout register-link" href="javascript:void(0)"><%= logout %></a>
+        </div>
+      <% } else { %>
+        <div class="login-wrapper">
+          <a class="login-link" href="javascript:void(0)"><%= console %></a>
+          <a class="signup register-link" href="javascript:void(0)"><%= register %></a>
+        </div>
+      <% } %>
+<!--       <div class="lang" style="display: inline-block"><a href="?lang=en">EN</a></div>
+      <div class="lang" style="display: none"><a href="?lang=zh">中</a></div> -->
+    </div>
+  </div>
+</div>

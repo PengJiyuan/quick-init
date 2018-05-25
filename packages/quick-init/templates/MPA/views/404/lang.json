@@ -1,0 +1,30 @@
+{
+  "en": {
+    "about_contact": "Contact us",
+    "about_unitedstack": "About TFCloud",
+    "about_us": "About us",
+    "content_one": "The page is not found.",
+    "content_three": "Jump to home",
+    "content_two": " Click here ",
+    "cssFile": "/static/dist/404.min.css",
+    "jsFile": "/static/dist/404.min.js",
+    "title": "Error - 404",
+    "word_brief": "Aspirational and way",
+    "word_describe": "There is cloud team of engineers is a precise, efficient, professional team.",
+    "word_title": "about us"
+  },
+  "zh": {
+    "about_contact": "联系我们",
+    "about_unitedstack": "关于同方有云",
+    "about_us": "关于我们",
+    "content_one": "我们可能无法找到您需要的内容。",
+    "content_three": "跳转到首页。",
+    "content_two": "点击此处",
+    "cssFile": "/static/dist/404.min.css",
+    "jsFile": "/static/dist/404.min.js",
+    "title": "Error - 404",
+    "word_brief": "同方有云，因志同而道合",
+    "word_describe": "同方有云工程师团队是一支精确，高效，专业的团队，致力于为全球数据中心打造统一开放的云平台，因志同道合而相聚。",
+    "word_title": "关于我们"
+  }
+}

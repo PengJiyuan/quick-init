@@ -64,4 +64,12 @@ package-lock.json
 
 .DS_Store
 
-_test
+# Dist
+public/dist
+public/assets/**/
+# i18n
+locale/*
+
+package-lock.json
+
+manifest.json

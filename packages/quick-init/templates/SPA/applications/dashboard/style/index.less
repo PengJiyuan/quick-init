@@ -1,0 +1,165 @@
+@import "~antd/dist/antd.less";
+@import "~ufec/style/index.less";
+@import "../../../iconfonts/fonts/icons.less";
+@import "./layout.less";
+
+#main {
+  display: flex;
+  flex: 1;
+}
+
+* {
+  font-family: "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif, "Monospaced Number", "Chinese Quote", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Hiragino Sans GB" !important;
+}
+
+// ant button cover
+.cover-ant-btn-lighten(@bgColor, @fontColor) {
+  color: @fontColor;
+  background-color: @bgColor;
+  border-color: @bgColor;
+  &:hover,
+  &:focus,
+  &:active,
+  &.active {
+    color: @fontColor;
+    background-color: lighten(@bgColor, 5%);
+    border-color: lighten(@bgColor, 5%);
+  }
+}
+.cover-ant-btn-darken(@bgColor, @fontColor) {
+  color: @fontColor;
+  background-color: @bgColor;
+  border-color: @bgColor;
+  &:hover,
+  &:focus,
+  &:active,
+  &.active {
+    color: @fontColor;
+    background-color: darken(@bgColor, 5%);
+    border-color: darken(@bgColor, 5%);
+  }
+}
+.ant-btn {
+  .cover-ant-btn-lighten(@info-color, #fff);
+  font-size: 12px;
+  line-height: 32px;
+  > .anticon-spin:before {
+    color: #fff;
+  }
+}
+
+.ant-btn-primary {
+  .cover-ant-btn-lighten(@primary-color, #fff);
+}
+
+.ant-btn-danger {
+  .cover-ant-btn-lighten(@error-color, #fff);
+}
+
+.ant-btn-dashed {
+  .cover-ant-btn-darken(#f0f0f0, @text-color);
+  border-style: normal;
+}
+
+.ant-btn[disabled] {
+  color: #939BA3;
+  background-color: #D5DDDF;
+  border-color: #D5DDDF;
+  &:hover,
+  &:focus,
+  &:active,
+  &.active {
+    background-color: #D5DDDF;
+    color: #939BA3;
+    border-color: #D5DDDF;
+  }
+  > .anticon-spin:before {
+    color: #939BA3;
+  }
+}
+
+// display: block 会导致按钮禁用的时候颜色不正常，暂时先强行改一下
+.ant-btn.ant-btn-loading::before {
+  display: none;
+}
+
+.ant-table-thead {
+  >tr >th > span {
+    color: #A3A7AD;
+  }
+}
+
+// loading cover
+.anticon-spin {
+  display: inline;
+}
+.anticon-spin:before {
+  color: rgb(111, 119, 129);
+  animation: spin 1.28s linear .28s infinite;
+}
+.ant-spin-nested-loading > div > .ant-spin .ant-spin-dot {
+  top: 100px;
+  width: 30px;
+  height: 35px;
+}
+
+.ant-spin-blur {
+  opacity: 0.4;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  20% {
+    transform: rotate(135deg);
+  }
+  to {
+    transform: rotate(180deg);
+  }
+}
+
+// ant dropdown style cover
+.ant-dropdown {
+  border-top-width: 4px;
+  border-top: 2px solid @primary-color;
+}
+
+.ant-dropdown-menu {
+  padding: 5px 0 10px;
+}
+
+.ant-dropdown-menu-item,
+.ant-dropdown-menu-submenu-title {
+  padding: 0 10px;
+  line-height: 24px;
+  font-size: 12px;
+}
+
+.ant-dropdown-menu-item-disabled,
+.ant-dropdown-menu-submenu-title-disabled {
+  color: #c1c1c1;
+}
+
+.ant-dropdown-menu-item-divider,
+.ant-dropdown-menu-submenu-title-divider {
+  background-color: @normal-color;
+  height: 2px;
+  box-sizing: content-box;
+  margin: 4px 10px 6px;
+}
+
+// 表格字体大小及表头背景色修正
+.ant-table {
+  font-size: 12px;
+}
+
+.ant-table-thead > tr > th {
+  background-color: #f6f6f6;
+}
+
+// select 字体大小修正
+.ant-select,
+.ant-select-dropdown {
+  font-size: 12px;
+}

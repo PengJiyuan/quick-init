@@ -63,5 +63,3 @@ typings/
 package-lock.json
 
 .DS_Store
-
-_test

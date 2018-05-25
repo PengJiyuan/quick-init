@@ -1,0 +1,34 @@
+{
+  "name": "quick-init",
+  "version": "0.0.1",
+  "description": "Init a project quickly.",
+  "main": "index.js",
+  "bin": {
+    "quick-init": "./bin/quick-init.js"
+  },
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PengJiyuan/quick-init.git"
+  },
+  "keywords": [
+    "init",
+    "project",
+    "quick"
+  ],
+  "author": "PengJiyuan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/PengJiyuan/quick-init/issues"
+  },
+  "homepage": "https://github.com/PengJiyuan/quick-init#readme",
+  "dependencies": {
+    "chalk": "^2.4.1",
+    "commander": "^2.15.1",
+    "cross-spawn": "^6.0.5",
+    "fs-extra": "^6.0.1",
+    "inquirer": "^5.2.0",
+    "webpack": "^4.8.3",
+    "webpack-dev-server": "^3.1.4"
+  }
+}
