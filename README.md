@@ -18,3 +18,11 @@ npx quick-init <project-name> [option]
 > Tip: If you want to use npx, you should make sure your npm's version >= npm@5.2.0.
 >
 > ref: https://medium.com/@maybekatz/introducing-npx-an-npm-package-runner-55f7d4bd282b
+
+<p align='center'>
+<img src='./screenshot.svg' alt='npm start'>
+</p>
+
+## License
+
+[MIT](./LICENSE)

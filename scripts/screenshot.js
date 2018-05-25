@@ -1,3 +1,7 @@
+/**
+ * This script used to generate svg via json file.
+ */
+
 const fs = require('fs');
 const path = require('path');
 const {render} = require('svg-term');
