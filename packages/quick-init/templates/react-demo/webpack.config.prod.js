@@ -10,7 +10,7 @@ module.exports = {
 
   context: __dirname,
 
-  mode: 'development',
+  mode: 'production',
 
   entry: './src/index.js',
 
@@ -52,6 +52,10 @@ module.exports = {
     }]
   },
 
+  optimization: {
+    minimize: true
+  },
+
   plugins: [
     new MiniCssExtractPlugin({
       filename: "[hash:6].[name].min.css",
@@ -59,6 +63,15 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, 'public/index.html')
+    }),
+    new CopyWebpackPlugin([
+      {
+        context: path.resolve(__dirname, 'public'),
+        from: '**/*',
+        to: '.'
+      }
+    ], {
+      ignore: ['public/index.html']
     })
   ],
 
