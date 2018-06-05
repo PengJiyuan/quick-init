@@ -1,3 +1,7 @@
+/**
+ * Copy specified template to project.
+ */
+
 const path = require('path');
 const fs = require('fs-extra');
 

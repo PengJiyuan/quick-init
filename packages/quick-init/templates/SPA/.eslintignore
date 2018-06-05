@@ -1,6 +1,0 @@
-client/uskin/*
-client/dist/*
-client/public/dist/*
-client/libs/moment.js
-**/node_modules/**
-config/*

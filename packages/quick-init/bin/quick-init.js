@@ -63,9 +63,22 @@ function selectAppType() {
     name: 'type',
     message: `Which type do you want to create?`,
     choices: [
-      'react-demo',
-      'MPA',
-      'SPA'
+      {
+        name: 'react-demo - (build a react demo)',
+        value: 'react-demo'
+      },
+      {
+        name: 'SPA - (Single Page Application, use react, react-router, redux)',
+        value: 'SPA'
+      },
+      {
+        name: 'MPA - (Multiple entry, for build normal website)',
+        value: 'MPA'
+      },
+      {
+        name: 'dashboard',
+        value: 'dashboard'
+      }
     ]
   }).then(a => {
     createApp(a.type);
@@ -114,8 +127,8 @@ function createApp(type) {
         console.log('\nInit package.json success!\n');
         install().then(() => {
           console.log(
-            `${chalk.cyan(`${projectName} installed success!`)}\n`,
-            `${chalk.cyan('You can:\n')}`,
+            `${chalk.cyan(`${projectName} installed success!`)}\r\n`,
+            `${chalk.cyan('You can:\r\n')}`,
             `${chalk.cyan(`  cd ${chalk.green(projectName)}\n`)}`,
             `${chalk.green('  npm start')} to visit this website!\n`
           );
