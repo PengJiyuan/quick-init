@@ -1,0 +1,14 @@
+{
+  "name": "cli-demo",
+  "version": "1.0.0",
+  "description": "cli.",
+  "bin": "./bin/cli.js",
+  "keywords": [
+    "cli"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "commander": "^2.15.1"
+  }
+}

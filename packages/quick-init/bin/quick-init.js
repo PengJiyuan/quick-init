@@ -67,14 +67,18 @@ function selectAppType() {
         name: 'react-demo - (build a react demo)',
         value: 'react-demo'
       },
+      {
+        name: 'cli - (this will help you init a cli demo.)',
+        value: 'cli'
+      },
       // {
       //   name: 'SPA - (Single Page Application, use react, react-router, redux)',
       //   value: 'SPA'
       // },
-      {
-        name: 'MPA - (Multiple entry, for build normal website)',
-        value: 'MPA'
-      },
+      // {
+      //   name: 'MPA - (Multiple entry, for build normal website)',
+      //   value: 'MPA'
+      // },
       // {
       //   name: 'dashboard',
       //   value: 'dashboard'
@@ -113,25 +117,28 @@ function createApp(type) {
   fs.ensureDirSync(root);
   process.chdir(root);
 
-  const scriptPath = path.resolve(
+  const initScriptPath = path.resolve(
     __dirname,
     '..',
     'scripts',
     'init.js'
   );
 
-  require(scriptPath)(type).then(() => {
+  const afterInstallScriptPath = path.resolve(
+    __dirname,
+    '..',
+    'feedback',
+    type,
+    'afterinstall.js'
+  );
+
+  require(initScriptPath)(type).then(() => {
     fs.readJson('./package.json').then(obj => {
       obj.name = projectName;
       fs.writeJson('./package.json', obj, {spaces: 2}).then(() => {
         console.log('\nInit package.json success!\n');
         install().then(() => {
-          console.log(
-            `${chalk.cyan(`${projectName} installed success!`)}\r\n`,
-            `${chalk.cyan('You can:\r\n')}`,
-            `${chalk.cyan(`  cd ${chalk.green(projectName)}\n`)}`,
-            `${chalk.green('  npm start')} to visit this website!\n`
-          );
+          require(afterInstallScriptPath)(projectName);
         });
       }).catch(err => {
         console.error(err);
