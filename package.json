@@ -7,10 +7,14 @@
   "devDependencies": {
     "eslint": "^4.19.1",
     "eslint-config-airbnb-base": "^12.1.0",
-    "eslint-plugin-import": "^2.12.0"
+    "eslint-plugin-import": "^2.12.0",
+    "pre-commit": "^1.2.2"
   },
   "scripts": {
     "eslint": "eslint packages/ scripts/ --ext .js --cache",
     "screenshot": "cd scripts && node screenshot.js"
-  }
+  },
+  "pre-commit": [
+    "eslint"
+  ]
 }
