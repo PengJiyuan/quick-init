@@ -67,18 +67,18 @@ function selectAppType() {
         name: 'react-demo - (build a react demo)',
         value: 'react-demo'
       },
-      {
-        name: 'SPA - (Single Page Application, use react, react-router, redux)',
-        value: 'SPA'
-      },
+      // {
+      //   name: 'SPA - (Single Page Application, use react, react-router, redux)',
+      //   value: 'SPA'
+      // },
       {
         name: 'MPA - (Multiple entry, for build normal website)',
         value: 'MPA'
       },
-      {
-        name: 'dashboard',
-        value: 'dashboard'
-      }
+      // {
+      //   name: 'dashboard',
+      //   value: 'dashboard'
+      // }
     ]
   }).then(a => {
     createApp(a.type);
