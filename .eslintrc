@@ -1,0 +1,36 @@
+{
+  "env": {
+    "es6": true,
+    "node": true
+  },
+  "extends": "airbnb-base",
+  "parserOptions": {
+    "sourceType": "module"
+  },
+  "rules": {
+    "indent": [
+      "error",
+      2
+    ],
+    "linebreak-style": [
+      "error",
+      "unix"
+    ],
+    "quotes": [
+      "error",
+      "single"
+    ],
+    "semi": [
+      "error",
+      "always"
+    ],
+    "no-console": 0,
+    "comma-dangle": 0,
+    "arrow-parens": 0,
+    "function-paren-newline": 0,
+    "no-use-before-define": 0,
+    "global-require": 0,
+    "import/no-dynamic-require": 0,
+    "no-param-reassign": 0
+  }
+}

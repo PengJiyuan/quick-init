@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-'use strict';
 
 const path = require('path');
 const fs = require('fs-extra');
@@ -22,7 +21,7 @@ program
   })
   .parse(process.argv);
 
-if(!projectName) {
+if (!projectName) {
   console.error('\nPlease specify project name!\n');
   console.log(
     `eg: ${chalk.cyan(program.name())} ${chalk.green('my-app')}\n`
@@ -34,7 +33,7 @@ if(!projectName) {
 const root = path.resolve(projectName);
 const rootExist = fs.pathExistsSync(root);
 
-if(rootExist && !program.overwrite) {
+if (rootExist && !program.overwrite) {
   inquirer.prompt({
     type: 'list',
     name: 'overwrite',
@@ -45,13 +44,13 @@ if(rootExist && !program.overwrite) {
     ]
   }).then(answers => {
     const overwrite = answers.overwrite === 'OverWrite';
-    if(overwrite) {
+    if (overwrite) {
       selectAppType();
     } else {
       process.exit(1);
     }
   });
-} else if(!rootExist) {
+} else if (!rootExist) {
   selectAppType();
 }
 
@@ -61,7 +60,7 @@ function selectAppType() {
   inquirer.prompt({
     type: 'list',
     name: 'type',
-    message: `Which type do you want to create?`,
+    message: 'Which type do you want to create?',
     choices: [
       {
         name: 'react-demo - (build a react demo)',
@@ -90,7 +89,6 @@ function selectAppType() {
 }
 
 function install() {
-
   console.log('Installing packages, This might take a couple of minutes...\n');
 
   return new Promise((resolve, reject) => {
@@ -99,7 +97,7 @@ function install() {
       'install'
     ];
 
-    if(program.verbose) {
+    if (program.verbose) {
       args.push('--verbose');
     }
 
@@ -135,7 +133,7 @@ function createApp(type) {
   require(initScriptPath)(type).then(() => {
     fs.readJson('./package.json').then(obj => {
       obj.name = projectName;
-      fs.writeJson('./package.json', obj, {spaces: 2}).then(() => {
+      fs.writeJson('./package.json', obj, { spaces: 2 }).then(() => {
         console.log('\nInit package.json success!\n');
         install().then(() => {
           require(afterInstallScriptPath)(projectName);

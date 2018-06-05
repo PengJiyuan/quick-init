@@ -20,12 +20,12 @@ function link() {
   });
 }
 
-module.exports = (projectName) => {
+module.exports = projectName => {
   link().then(() => {
     console.log(
       `${chalk.cyan(`${projectName} installed success!`)}\r\n`,
       `${chalk.cyan('You can:\r\n')}`,
       `${chalk.green(` ${projectName} --help`)} to see the options!\n`
-    );  
+    );
   });
 };

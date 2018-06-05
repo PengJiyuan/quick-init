@@ -9,7 +9,7 @@ module.exports = (type) => {
   const templatePath = path.resolve(__dirname, '..', `templates/${type}`);
   const CWD = process.cwd();
   return new Promise((resolve, reject) => {
-    fs.copy(templatePath, `${CWD}`, {overwrite: true}, (err) => {
+    fs.copy(templatePath, `${CWD}`, { overwrite: true }, (err) => {
       if (err) {
         reject(err);
         process.exit(1);
